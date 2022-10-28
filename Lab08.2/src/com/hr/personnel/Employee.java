@@ -40,6 +40,13 @@ public class Employee {
         System.out.println(getName() + " working hard since " + getHireDate());
     }
 
+
+    public void pay() {
+       System.out.println(name + " is paid under the table.");
+    }
+
+
+
     // accessor methods
     public String getName() {
         return name;

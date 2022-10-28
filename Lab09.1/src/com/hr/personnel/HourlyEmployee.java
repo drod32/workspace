@@ -1,15 +1,15 @@
 package com.hr.personnel;
 
+import gov.irs.TaxPayer;
+
 import java.time.LocalDate;
 
-public class HourlyEmployee extends Employee {
+public class HourlyEmployee
+        extends Employee
+        implements TaxPayer {
 
     private double rate;
     private double hours;
-
-
-    public HourlyEmployee() {
-    }
 
     public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) {
         super(name, hireDate);
@@ -18,10 +18,24 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
+    public void pay() {
+        System.out.println(getName() + " is paid " + rate * hours);
+    }
+
+    @Override
+    public void payTaxes() {
+        System.out.println("Hourly: taxes = "
+                + rate * hours * HOURLY_TAX_RATE);
+
+    }
+
+    @Override
     public String toString() {
-        return "Employee: name=" + getName() + ", hireDate=" + getHireDate() +
+        return super.toString() +
                 ", rate=" + rate +
                 ", hours=" + hours +
                 '}';
     }
+
+
 }

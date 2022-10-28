@@ -8,6 +8,8 @@
  
 package gov.irs;
 
+import com.hr.personnel.Employee;
+
 /**
  * The IRS maintains a collection of TaxPayers and collects taxes from them.
  *
@@ -20,7 +22,12 @@ public class IRS {
 
     public void collectTaxes() {
         for (int i = 0; i < currentIndex; i++) {
+            double deduction = payers[i].getStandardDeduction();
+            System.out.println("payers standard deduction is " + deduction);
             payers[i].payTaxes();
+            System.out.println();
+
+
         }
     }
     

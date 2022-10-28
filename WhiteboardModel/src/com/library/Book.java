@@ -23,12 +23,13 @@ public class Book {
     public Book() {
         instanceCount++;
     }
-    public Book(String bookName, Genre genre, String author, boolean haveIReadIt){
+    public Book(String bookName, Genre genre, String author, boolean haveIReadIt) throws IllegalArgumentException{
         this();
         setBookName(bookName);
         this.genre = genre;
         this.author = author;
         this.haveIReadIt = haveIReadIt;
+        addToLibrary();
 
     }
 
@@ -41,7 +42,7 @@ public class Book {
 
 
     //method to remove book from shelf and begin reading
-    public void readBook(){
+    public void readBook() throws IllegalArgumentException{
         if (isOnShelf() == true) {
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formattedDate = DateTimeFormatter.ofPattern("HH:mm MM-dd-yyyy");
@@ -53,7 +54,8 @@ public class Book {
 
         }
         else {
-            System.out.println("Sorry, this book is not your on shelf\n");
+            throw  new IllegalArgumentException("Sorry, this book is not your on shelf");
+
         }
     }
     //method to return a book to the shelf after it has been added
@@ -70,7 +72,7 @@ public class Book {
     }
 
     // Method used to add a book to the library
-    public void addToLibrary(){
+    public void addToLibrary() throws IllegalArgumentException{
         if (instanceCount <= MAX_SHELF_SPACE){
 
             System.out.println("The " + genre + ", " + bookName +
@@ -88,10 +90,9 @@ public class Book {
                     " books in your library\n");
         }
         else {
-            System.out.println("Sorry the Shelf is full\n");;
+            throw  new IllegalArgumentException("Sorry, shelf is full");
         }
     }
-
 
 
     public void libraryCounter(){
@@ -104,9 +105,6 @@ public class Book {
             ;
         }
     }
-
-
-
 
 
     // Getter And Setter Methods (Accessor Methods)

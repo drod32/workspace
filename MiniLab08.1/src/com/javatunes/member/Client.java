@@ -11,6 +11,14 @@ package com.javatunes.member;
 public class Client {
 
     public static void main(String[] args) {
-        new SubMember();
+
+        Member david = new SubSubMember("David",
+                true, 3);
+        Member joe = new SubMember("joe",
+                true, 2);
+        Member eric =
+
+        david.checkPoints();
+        joe.checkPoints();
     }
 }

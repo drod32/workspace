@@ -1,30 +1,19 @@
-/*
- * This code is sample code, provided as-is, and we make no
- * warranties as to its correctness or suitability for any purpose.
- *
- * We hope that it's useful to you.  Enjoy.
- * Copyright LearningPatterns Inc.
- */
-
 package com.javatunes.member;
 
-public class SubMember extends Member {
+public class SubSubMember extends Member {
 
     private boolean membershipStatus;
     private int extraRewardPoints;
 
-    public SubMember(String name, boolean membershipStatus,
-                     int extraRewardPoints) {
+    public SubSubMember(String name, boolean membershipStatus,
+                        int extraRewardPoints) {
         super(name);
         this.membershipStatus = membershipStatus;
         this.extraRewardPoints = extraRewardPoints;
     }
 
-
-
     @Override
     public void checkPoints() {
-        // NOTE: there is a call to super() here! as the first line of code
         System.out.println( getName()+ "Has an active membership " +
                 "and will receive " +
                 extraRewardPoints + " bonus points!!");
