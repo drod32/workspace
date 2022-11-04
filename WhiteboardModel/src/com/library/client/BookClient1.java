@@ -30,6 +30,8 @@ public class BookClient1 {
         Book book5 = new Book("The Joy Luck Club", Genre.FICTION,
                 "Amy Tan", true);
         book5. addToLibrary();
+        
+        // this is part of an excercise 
 
 
 
